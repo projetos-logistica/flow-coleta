@@ -1,0 +1,156 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system — Painel de Coletas - SFS Convencional
+ * Minimal palette: black (#000000), white (#FFFFFF), light gray (#E8E8E8),
+ * soft blue (#A0C6ED). Fraunces for headings, Inter for UI.
+ * All colors are oklch tokens; never hardcode colors in components.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-chip: var(--chip);
+  --color-live: var(--live);
+  --color-pendente: var(--pendente-bg);
+  --color-pendente-foreground: var(--pendente-fg);
+  --color-coletado: var(--coletado-bg);
+  --color-coletado-foreground: var(--coletado-fg);
+  --color-finalizado: var(--finalizado-bg);
+  --color-finalizado-foreground: var(--finalizado-fg);
+  --color-erro: var(--erro-bg);
+  --color-erro-foreground: var(--erro-fg);
+  --color-naoentregue: var(--naoentregue-bg);
+  --color-naoentregue-foreground: var(--naoentregue-fg);
+  --color-neutro: var(--default-bg);
+  --color-neutro-foreground: var(--default-fg);
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  --radius: 0.625rem;
+
+  /* Base palette: black / white / #E8E8E8 / #A0C6ED */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0 0 0);
+  --surface: oklch(1 0 0);
+  --surface-hover: oklch(0.97 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0 0 0);
+  --primary: oklch(0.81 0.12 280);
+  --primary-foreground: oklch(0.12 0 0);
+  --secondary: oklch(0.93 0 0);
+  --secondary-foreground: oklch(0.12 0 0);
+  --muted: oklch(0.93 0 0);
+  --muted-foreground: oklch(0.52 0 0);
+  --accent: oklch(0.95 0.05 280);
+  --accent-foreground: oklch(0.35 0.12 280);
+  --destructive: oklch(0.55 0.15 25);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.91 0 0);
+  --input: oklch(0.91 0 0);
+  --ring: oklch(0.81 0.12 280);
+  --chip: oklch(0.93 0 0);
+  --live: oklch(0.55 0.09 155);
+
+  /* Status chips: derived from the core palette (gray + blue) plus minimal semantic accents */
+  --pendente-bg: oklch(0.93 0 0);
+  --pendente-fg: oklch(0.45 0 0);
+  --coletado-bg: oklch(0.93 0.04 280);
+  --coletado-fg: oklch(0.45 0.12 280);
+  --finalizado-bg: oklch(0.94 0.03 145);
+  --finalizado-fg: oklch(0.42 0.1 145);
+  --erro-bg: oklch(0.94 0.03 25);
+  --erro-fg: oklch(0.45 0.14 25);
+  --naoentregue-bg: oklch(0.93 0.04 290);
+  --naoentregue-fg: oklch(0.4 0.12 290);
+  --default-bg: oklch(0.93 0 0);
+  --default-fg: oklch(0.45 0 0);
+}
+
+.dark {
+  --background: oklch(0.15 0 0);
+  --foreground: oklch(0.97 0 0);
+  --surface: oklch(0.2 0 0);
+  --surface-hover: oklch(0.25 0 0);
+  --card: oklch(0.2 0 0);
+  --card-foreground: oklch(0.97 0 0);
+  --popover: oklch(0.2 0 0);
+  --popover-foreground: oklch(0.97 0 0);
+  --primary: oklch(0.75 0.12 280);
+  --primary-foreground: oklch(0.1 0 0);
+  --secondary: oklch(0.3 0 0);
+  --secondary-foreground: oklch(0.97 0 0);
+  --muted: oklch(0.3 0 0);
+  --muted-foreground: oklch(0.72 0 0);
+  --accent: oklch(0.3 0.05 280);
+  --accent-foreground: oklch(0.85 0.05 280);
+  --destructive: oklch(0.63 0.16 25);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.75 0.12 280);
+  --chip: oklch(0.32 0 0);
+  --live: oklch(0.68 0.11 155);
+
+  /* Status chips: darker, saturated surfaces on black */
+  --pendente-bg: oklch(0.32 0 0);
+  --pendente-fg: oklch(0.75 0 0);
+  --coletado-bg: oklch(0.4 0.08 280);
+  --coletado-fg: oklch(0.93 0.04 280);
+  --finalizado-bg: oklch(0.38 0.07 145);
+  --finalizado-fg: oklch(0.95 0.03 145);
+  --erro-bg: oklch(0.4 0.1 25);
+  --erro-fg: oklch(0.96 0.04 25);
+  --naoentregue-bg: oklch(0.37 0.09 290);
+  --naoentregue-fg: oklch(0.94 0.04 290);
+  --default-bg: oklch(0.32 0 0);
+  --default-fg: oklch(0.75 0 0);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+}
